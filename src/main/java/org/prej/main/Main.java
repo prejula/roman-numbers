@@ -1,21 +1,20 @@
 package org.prej.main;
 
-import org.prej.main.reader.LanguageReader;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.prej.interpreter.LanguageInterpreter;
 
 public class Main
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
-		System.out.println("Please read the below instructions before proceeding.");
-		System.out.println("Step1. Enter basic language elements example, glob is I. After entering all basic elements enter # for next step.");
-		System.out.println("Step2. Enter metal values, example glob glob Silver is 34 Credits. After entering all values enter # for next step.");
-		System.out.println("Step3. Enter the language element for which value is required. After entering all values enter # to exit.");
+		InputStream inputStream = Main.class.getResourceAsStream("/sample_input.txt");
 		
-		LanguageReader languageReader = new LanguageReader();
+		LanguageInterpreter languageInterpreter = new LanguageInterpreter(inputStream, System.out);
 		
-		languageReader.read();
-		
+		languageInterpreter.interpret();
 	}
 
 }
