@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.prej.alien.AlienLanguage;
+import org.prej.constants.LanguageConstants;
 import org.prej.info.LanguageInfo;
 import org.prej.reader.LanguageReader;
 import org.prej.writer.LanguageWriter;
@@ -12,7 +13,6 @@ import org.prej.writer.LanguageWriter;
 
 public class LanguageInterpreter
 {
-	private String sentenceDelimeter = " is ";
 	private InputStream inputStream;
 	private OutputStream outputStream;
 
@@ -49,14 +49,14 @@ public class LanguageInterpreter
 		
 		for (String requiredValueString : languageInfo.getValuesRequired())
 		{
-			String[] requiredValueArray = requiredValueString.split(sentenceDelimeter);
+			String[] requiredValueArray = requiredValueString.split(LanguageConstants.SENTENCE_DELIMITER);
 
 			if(requiredValueArray.length > 1)
 			{
 				String languageElement = requiredValueArray[1].substring(0 , requiredValueArray[1].length() - 1);
 				Double value = alienLanguage.valueOf(languageElement.trim());
 				
-				languageInfo.setOutputMap(languageElement, value);
+				languageInfo.setOutputMap(languageElement.trim(), value);
 				
 			} else
 			{

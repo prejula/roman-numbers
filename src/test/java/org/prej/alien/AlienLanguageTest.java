@@ -12,19 +12,30 @@ public class AlienLanguageTest
 	{
 		AlienLanguage alienLanguage = new AlienLanguage();
 		
-		assertEquals(RomanDigit.I.name() , alienLanguage.addLanguageElement("glob is I"));
+		alienLanguage.addLanguageElement("glob is I");
+		assertEquals(RomanDigit.I.name() , alienLanguage.getLanguageElementVaue("glob"));
 
-		assertEquals(RomanDigit.V.name() , alienLanguage.addLanguageElement("prok is V"));
+		alienLanguage.addLanguageElement("prok is V");
+		assertEquals(RomanDigit.V.name() , alienLanguage.getLanguageElementVaue("prok"));
 
-		assertEquals(RomanDigit.X.name() , alienLanguage.addLanguageElement("pish is X"));
+		alienLanguage.addLanguageElement("pish is X");
+		assertEquals(RomanDigit.X.name() , alienLanguage.getLanguageElementVaue("pish"));
+		
+		alienLanguage.addLanguageElement("tegj is L");
+		assertEquals(RomanDigit.L.name() , alienLanguage.getLanguageElementVaue("tegj"));
+		
+		assertNull(alienLanguage.getLanguageElementVaue("wwww"));
 
-		assertEquals(RomanDigit.L.name() , alienLanguage.addLanguageElement("tegj is L"));
+		alienLanguage.addMetalValue("glob glob Silver is 34 Credits");
+		assertEquals(Double.valueOf(17) , alienLanguage.getMetalValue("Silver"));
 
-		assertEquals(Double.valueOf(17) , alienLanguage.addMetalValue("glob glob Silver is 34 Credits"));
-
-		assertEquals(Double.valueOf(14450) , alienLanguage.addMetalValue("glob prok Gold is 57800 Credits"));
-
-		assertEquals(Double.valueOf(195.5) , alienLanguage.addMetalValue("pish pish Iron is 3910 Credits"));
+		alienLanguage.addMetalValue("glob prok Gold is 57800 Credits");
+		assertEquals(Double.valueOf(14450) , alienLanguage.getMetalValue("Gold"));
+		
+		alienLanguage.addMetalValue("pish pish Iron is 3910 Credits");
+		assertEquals(Double.valueOf(195.5) , alienLanguage.getMetalValue("Iron"));
+		
+		assertNull(alienLanguage.getMetalValue("Platinum"));
 
 		assertEquals(Double.valueOf(42) , alienLanguage.valueOf("pish tegj glob glob"));
 		

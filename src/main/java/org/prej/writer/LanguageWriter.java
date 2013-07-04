@@ -8,12 +8,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.prej.constants.LanguageConstants;
 import org.prej.info.LanguageInfo;
 
 public class LanguageWriter
 {
-
-	private String sentenceDelimeter = " is ";
 
 	public void write(OutputStream outputStream , LanguageInfo languageInfo) throws IOException
 	{
@@ -25,7 +24,7 @@ public class LanguageWriter
 		{
 			Map.Entry<String , Double> mapEntry = it.next();
 
-			String output = (null != mapEntry.getValue() && 0 != mapEntry.getValue()) ? mapEntry.getKey() + sentenceDelimeter
+			String output = (null != mapEntry.getValue() && 0 != mapEntry.getValue()) ? mapEntry.getKey() + LanguageConstants.SENTENCE_DELIMITER
 					+ mapEntry.getValue() : "I have no idea what you are talking about";
 
 			bufferedWriter.write(output + "\r\n");
