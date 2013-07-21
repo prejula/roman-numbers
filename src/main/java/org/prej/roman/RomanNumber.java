@@ -34,9 +34,9 @@ public final class RomanNumber
 		for(int i = 0; i < length;)
 		{
 
-			int rmDigit = RomanDigit.valueOf(String.valueOf(romanDigitArray[i])).value;
+			int rmDigit = RomanDigit.valueOf(String.valueOf(romanDigitArray[i])).value();
 
-			int nextRmDigit = i < length - 1 ? RomanDigit.valueOf(String.valueOf(romanDigitArray[i + 1])).value : 0;
+			int nextRmDigit = i < length - 1 ? RomanDigit.valueOf(String.valueOf(romanDigitArray[i + 1])).value() : 0;
 
 			if(rmDigit < nextRmDigit)
 			{

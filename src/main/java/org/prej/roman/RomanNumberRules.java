@@ -51,7 +51,7 @@ public final class RomanNumberRules
 					&& (nextRmDigit.equals(RomanDigit.L) || nextRmDigit.equals(RomanDigit.C)) ? true : rmDigit.equals(RomanDigit.C)
 					&& (nextRmDigit.equals(RomanDigit.D) || nextRmDigit.equals(RomanDigit.M)) ? true : (rmDigit.equals(RomanDigit.V)
 					|| rmDigit.equals(RomanDigit.L) || rmDigit.equals(RomanDigit.D))
-					&& rmDigit.value < nextRmDigit.value ? false : validate;
+					&& rmDigit.value() < nextRmDigit.value() ? false : validate;
 		}
 
 		return validate;
