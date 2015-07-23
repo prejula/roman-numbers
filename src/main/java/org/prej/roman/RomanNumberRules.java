@@ -11,13 +11,13 @@ public final class RomanNumberRules
 
 	static
 	{
-		repeatableDigitsList = new ArrayList<RomanDigit>();
+		repeatableDigitsList = new ArrayList<RomanDigit>(4);
 		repeatableDigitsList.add(RomanDigit.I);
 		repeatableDigitsList.add(RomanDigit.X);
 		repeatableDigitsList.add(RomanDigit.C);
 		repeatableDigitsList.add(RomanDigit.M);
 
-		nonRepeatableDigitsList = new ArrayList<RomanDigit>();
+		nonRepeatableDigitsList = new ArrayList<RomanDigit>(3);
 		nonRepeatableDigitsList.add(RomanDigit.D);
 		nonRepeatableDigitsList.add(RomanDigit.L);
 		nonRepeatableDigitsList.add(RomanDigit.V);
